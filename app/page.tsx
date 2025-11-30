@@ -7,18 +7,37 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-const features = [
+type Feature = {
+  title: string;
+  description: string;
+  href: "/actions" | "/cache" | "/trpc" | "/streaming" | "/webrtc";
+};
+
+const features: Feature[] = [
   {
     title: "Server Actions",
-    description: "Run server-side code from client components with 'use server' directive",
+    description: "useActionState hook with 'use server' directive for form handling",
     href: "/actions",
-    docs: "https://react.dev/reference/rsc/server-actions",
   },
   {
     title: "Composable Caching",
-    description: "Fine-grained caching with 'use cache', cacheLife, and cacheTag",
+    description: "'use cache' with cacheLife, cacheTag, and on-demand revalidation",
     href: "/cache",
-    docs: "https://nextjs.org/docs/app/api-reference/directives/use-cache",
+  },
+  {
+    title: "tRPC + TanStack Query",
+    description: "End-to-end typesafe APIs with React Query for async state",
+    href: "/trpc",
+  },
+  {
+    title: "SSR Streaming",
+    description: "Server-Sent Events for OpenAI-style streaming responses",
+    href: "/streaming",
+  },
+  {
+    title: "WebRTC",
+    description: "Peer-to-peer video/audio with camera access and ICE negotiation",
+    href: "/webrtc",
   },
 ];
 
@@ -35,15 +54,15 @@ export default function Home() {
 
       <div className="grid gap-4 md:grid-cols-2">
         {features.map((feature) => (
-          <Link key={feature.href} href={feature.href as "/actions" | "/cache"}>
+          <Link key={feature.href} href={feature.href}>
             <Card className="h-full transition-colors hover:bg-muted/50">
               <CardHeader>
                 <CardTitle>{feature.title}</CardTitle>
                 <CardDescription>{feature.description}</CardDescription>
               </CardHeader>
               <CardContent>
-                <span className="text-sm text-muted-foreground hover:underline">
-                  View docs
+                <span className="text-sm text-muted-foreground">
+                  Explore demo
                 </span>
               </CardContent>
             </Card>
@@ -53,9 +72,10 @@ export default function Home() {
 
       <div className="mt-12 p-6 border rounded-lg">
         <h2 className="text-xl font-semibold mb-4">Stack</h2>
-        <div className="grid gap-2 text-sm text-muted-foreground">
-          <p>Next.js 16.0.5 with App Router</p>
+        <div className="grid gap-2 text-sm text-muted-foreground md:grid-cols-2">
+          <p>Next.js 16.0.5 with Turbopack</p>
           <p>React 19.2.0</p>
+          <p>tRPC + TanStack Query</p>
           <p>Tailwind CSS v4</p>
           <p>shadcn/ui (new-york)</p>
           <p>TypeScript with strict mode</p>
