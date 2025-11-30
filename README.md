@@ -22,9 +22,10 @@ pnpm dev
 
 | Feature | Status | Route |
 |---------|--------|-------|
-| Server Actions | Planned | `/actions` |
-| useActionState | Planned | `/actions` |
-| use cache | Planned | `/cache` |
+| Server Actions | Done | `/actions` |
+| useActionState | Done | `/actions` |
+| use cache | Done | `/cache` |
+| cacheTag + revalidateTag | Done | `/cache` |
 | Typed Routes | Configured | - |
 
 ## Official Documentation
